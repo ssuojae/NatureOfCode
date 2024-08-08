@@ -26,6 +26,7 @@ class PerlinNoise {
     _generatePermutations();
   }
 
+  // 256개의 정수 배열을 생성하고, 이를 섞어 permutations 배열을 만든다.
   void _generatePermutations() {
     final List<int> tempList = List<int>.generate(256, (i) => i);
     final random = Random(seed);
@@ -33,21 +34,28 @@ class PerlinNoise {
     permutations = List<int>.from(tempList)..addAll(tempList);
   }
 
+  // t 값의 부드러운 보간을 위해 사용
   double _fade(double t) {
     return t * t * t * (t * (t * 6 - 15) + 10);
   }
+  
+  // t 값을 사용하여 a와 b 사이의 선형 보간을 수행
+  double _lerp(double t, double a, double b) {
+    return a + t * (b - a);
+  }
 
+  // 해시 값을 기반으로 방향 벡터와 거리 벡터 간의 내적을 계산
   double _grad(int hash, double x, double y) {
     final h = hash & 15;
     final u = h < 8 ? x : y;
     final v = h < 4 ? y : (h == 12 || h == 14 ? x : 0);
     return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
   }
+  
 
-  double _lerp(double t, double a, double b) {
-    return a + t * (b - a);
-  }
-
+  // Fade 함수를 적용하여 보간에 사용할 u와 v 값을 계산
+  // 각 격자 점의 해시 값을 계산하고, Gradient 함수를 사용하여 내적 값을 계산
+  // Lerp 함수를 사용하여 최종 노이즈 값을 계산
   double noise(double x, double y) {
     final X = x.floor() & 255;
     final Y = y.floor() & 255;
