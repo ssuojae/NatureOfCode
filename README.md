@@ -1,16 +1,9 @@
-# natureofcode
+## Nature of code
 
-A new Flutter project.
+<img src="https://github.com/user-attachments/assets/ae551583-b82e-4a86-8e42-48085ca9edec" width="400">
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+#### 정리주소: [https://ssuojae.tistory.com/278](https://ssuojae.tistory.com/278)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Processing 주제의 기술서적을 읽으며 책의 예제들을 직접 Dart로 구현해본 레포지토리입니다 :)
